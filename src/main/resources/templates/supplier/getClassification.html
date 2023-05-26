@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content=
+            "width=device-width, initial-scale=1.0" />
+
+    <!-- font-awesome library to make the
+        webpage more appealing -->
+    <link rel="stylesheet" href=
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Internal CSS styling -->
+    <style>
+        .content {
+            text-align: center;
+            padding: 30px;
+            margin: 0px auto;
+        }
+
+        .details {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img {
+            border-radius: 5px;
+            box-shadow: black;
+        }
+
+        table,
+        td {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <div class="head">
+        <h1 id="head"></h1>
+    </div>
+    <div class="email">
+        <i class="fa fa-envelope" style=
+                "font-size: 15px; color: blue;"></i>
+        <a href="" id="email"> </a>
+    </div>
+    <div class="phone">
+        <i class="fa fa-phone" style=
+                "font-size: 15px; color: blue;"></i>
+        <a href="" id="phone"> </a>
+    </div>
+    <br />
+    <div id="user-img"></div>
+    <br />
+
+    <div class="details">
+        <table>
+            <tr>
+                <td>Age</td>
+                <td><span id="age"></span></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><span id="gender"></span></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td><span id="location"></span></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><span id="country"></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    const api_url = "http://localhost:8080/api/SupClassification";
+
+    async function getUser() {
+
+        // Making an API call (request)
+        // and getting the response back
+        //const response =  await fetch('http://localhost:8080/api/SupClassification');
+
+        // Parsing it to JSON format
+//	const data = await response.json();
+//	console.log(data.results);
+        fetch('http://localhost:8080/api/SupClassification')
+            .then(function(response){
+                return response.json();
+            })
+            .then(function (data){
+                console.log(data);
+                //Retrieving data from JSON
+               // const user = data.results[0];
+                const user2 = data[0];
+                const user3 = data[0].classification;
+                const user4 = data[0].numberSuppliers;
+                const user5 = data[1].classification;
+                const user7 = data[2].classification;
+                const user8 = data[2].numberSuppliers;
+                const user6 = data[1].numberSuppliers;
+              //  console.log(data.results[0]);
+              //  console.log('user1:'+user);
+                console.log('user2:'+user2);
+                console.log('user3:'+user3);
+                console.log('user4:'+user4);
+                console.log('user5:'+user5);
+                console.log('user6:'+user6);
+                console.log('user7:'+user7);
+                console.log('user8:'+user8);
+
+                //let { title, first, last } = user.name;
+                let  classification = user2;
+               // let { gender, email, phone } = user;
+                let { numberSuppliers} = user4;
+               // let image = user.picture.large;
+                let image = user5;
+               // let image_icon = user.picture.thumbnail;
+                let image_icon = user6;
+               // let age = user.dob.age;
+                let age = user7;
+               // let { city, state, country } = user.location;
+
+              //  let fullName = title + ". " + first + " " + last;
+               document.title = user8;
+
+                // Accessing the div container and modify/add
+                // elements to the containers
+                document.getElementById("head").innerHTML = user2;
+                document.getElementById("email").href = "mailto:" + user4;
+                document.getElementById("email").innerHTML = user4;
+                document.getElementById("phone").href = "tel:" + user5;
+                document.getElementById("phone").innerHTML = user7;
+                // accessing the span container
+                document.querySelector("#age").textContent = age;
+                document.querySelector("#gender").textContent = gender;
+
+                document.querySelector("#location").textContent
+                    = city + ", " + state;
+
+                document.querySelector("#country").textContent = country;
+
+                // Creating a new element and appending it
+                // to previously created containers
+                let img = document.createElement("img");
+                let img_div = document.getElementById("user-img");
+                img.src = image;
+                img_div.append(img);
+
+                const favicon = document.getElementById("favicon");
+                favicon.setAttribute("href", image_icon);
+            })
+    }
+    // Calling the function
+    getUser();
+</script>
+
+</html>
+

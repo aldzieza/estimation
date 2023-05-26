@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SEARCH PSAPT COMPONENTS LIST</title>
+
+    <link rel="stylesheet" href="../../static/style.css" th:href="@{style.css}">
+</head>
+
+<body>
+
+<!-- @@@@@@@@@@@   HEADER SECTION   @@@@@@@@@@@ -->
+<header th:replace="fragments :: header"></header>
+<!-- @@@@@@@@@@@  -/- HEADER SECTION   @@@@@@@@@@@ -->
+
+
+<!-- @@@@@@@@@@@   formularz SECTION   @@@@@@@@@@@ -->
+<div class="container text-center">
+    <!-- <div th:if="${component.sapNumber==null}"><h1> Create New Component </h1></div> -->
+    <!-- <div th:unless="${component.sapNumber==null}"><h1> Edit Component </h1></div> -->
+    <div ><p><a class="link1 text-center text-uppercase text-white " th:href = "@{/components_PSAPT}" type="button" >Go Back  Page</a></p>
+    </div>
+    <form method="post" action="components_PSAPT_BySapNumber"    >
+
+
+        <div class="row">
+
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4">Component SAP NUMBER:</label>
+                <div class="col-sm-8">
+                    <input type="text" name="sapNumber"  class="form-control"/>
+                </div>
+            </div>
+
+
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-search bg-gradient-peach">Search Component  by Sap Number</button>
+            </div>
+        </div>
+
+        <div class="form-group row2">
+            <label class="col-form-label col-sm-4">
+                CUSTOMER:
+                <select name="customer" class="col-sm-8">
+                    <option value="VW">VW</option>
+                    <option value="STELLANTIS">STELLANTIS</option>
+                    <option value="PSA">PSA</option>
+                    <option value="">EMPTY / OTHER </option>
+                </select>
+            </label>
+
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-search2 bg-gradient-peach">Search Component By CUSTOMER</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- @@@@@@@@@@@  -/- formularz SECTION   @@@@@@@@@@@ -->
+</body>
+</html>

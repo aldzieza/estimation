@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset ="ISO-8859-1" >
+    <title>LIST Products</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container text-center">
+    <div><h1> Product List</h1></div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-black">
+            <tr>
+                <th>ID </th>
+                <th>Name  </th>
+                <th>Price  </th>
+                <th>Details</th>
+                <th>Category  </th>
+                <th>Category Details </th>
+                <th> Action Del</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="product : ${listProducts}">
+                <tr>
+                    <td>[[${product.id}]]</td>
+                    <td>[[${product.name}]]</td>
+                    <td>[[${product.price}]]</td>
+                    <td>[[${product.details}]]</td>
+                    <td><a th:href="@{'/products/edit/'+${product.id}}"></a>[[${product.category.name}]]</td>
+                    <td>
+                        <a th:href="@{'/products/edit/'+${product.id}}" >[[${product.category.name}]]</a>&nbsp;
+                    </td>
+                    <td>
+                        <a th:href="@{'/products/delete/'+${product.id}}" >Delete: [[${product.id}]]</a>
+
+                </tr>
+
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

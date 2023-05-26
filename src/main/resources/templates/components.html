@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset ="ISO-8859-1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LIST Components</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+     <link rel="stylesheet" href="../style/style.css">
+     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+
+<body>
+
+<!-- @@@@@@@@@@@   HEADER SECTION   @@@@@@@@@@@ -->
+<header th:replace="fragments :: header"></header>
+
+  
+<!-- @@@@@@@@@@@  -/- HEADER SECTION   @@@@@@@@@@@ -->
+
+    
+
+    <div ><p><a class="link1 text-center text-uppercase text-white " th:href = "@{/}" type="button" >Go Back to Home Page</a></p>
+    </div>
+    <div class="container text-center">
+    <div>
+    <a th:href = "@{/secured}"  class="btn btn-primary bg-gradient btn-shadow text-white"> More about us </a></div>
+    <div>
+        <br><br></br>
+               <h1> <p>*** &nbsp&nbsp PRIMA &nbsp SOSNOWIEC &nbsp&nbsp  *** </p> <br>
+            <p> &nbsp&nbspCOMPONENTS  &nbsp&nbsp LIST  &nbsp&nbsp </p>
+        </h1><br></br>
+    </div>
+
+    <div>
+        <table class="table_component"  >
+            <thead class="thead-dark">
+            <tr>
+<!--                <th>ID </th>-->
+				<th> PLANT </th>
+                <th> SUPPLIER </th>
+                <th class=" col-sm-80">SAP_NAME</th>
+                <th class=" col-sm-80">SAP NUMBER</th>
+                <th>id_Sap  </th>
+                <th>CUSTOMER</th>
+                <th>PPM  </th>
+                <th>CERTIFICATE</th>
+                <th> APPROVAL</th>
+                <th> AUDIT RESULT</th>
+                <th> PSCR </th>
+                <th> LOCATION </th>
+                <th> DELAYS </th>
+                <th> INTERFERENCE </th>
+                <th> COLLABORATION </th>
+                <th> AVERAGE SCORE </th>
+
+
+            </tr>
+            </thead>
+            <tbody class="table_component" >
+            <th:block th:each="component : ${listComponents}">
+                <tr>
+<!--                    <td>[[${component.id}]]</td>-->
+					<td th:class="just-avg-audit">[[${component.primaPlant}]]</td>
+					<td th:class="just-avg-audit">[[${component.supplier}]]</td>
+                    <td th:class="just-avg-audit">[[${component.sapName}]]</td>
+                    <td th:class="just-avg-audit">[[${component.sapNumber}]]</td>
+                    <td th:class="just-avg-audit">[[${component.id_Sap}]]</td>
+                    <td th:class="just-avg-audit">[[${component.customer}]]</td>
+                    <td th:class="${component.ppm ==100} ? 'above-avg-comp' : (${component.ppm == 0} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.ppm}]]</td>
+                    <td th:class="${component.certificate == 100} ? 'above-avg-comp' : (${component.certificate == 80} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.certificate}]]</td>
+                    <td th:class="${component.approval == 100} ? 'above-avg-comp' : (${component.approval == 110} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.approval}]]</td>
+                    <td th:class="${component.auditResult == 'N/A'} ? 'just-avg-audit' : (${component.auditResult == '100'} ? 'above-avg-audit' : 'below-avg-audit')">[[${component.auditResult}]]</td>
+                    <td th:class="${component.pscr == 'N/A'} ? 'just-avg-audit' : (${component.pscr == '100'} ? 'above-avg-audit' : 'below-avg-audit')">[[${component.pscr}]]</td>
+                    <td th:class="${component.location == '100'} ? 'above-avg-comp' : (${component.location == '80'} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.location}]]</td>
+                    <td th:class="${component.deliveryDeley == '100'} ? 'above-avg-comp' : (${component.deliveryDeley == '0'} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.deliveryDeley}]]</td>
+                    <td th:class="${component.interference == '100'} ? 'above-avg-comp' : (${component.interference == '0'} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.interference}]]</td>
+                    <td th:class="${component.collaboration == '100'} ? 'above-avg-comp' : (${component.collaboration == '0'} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.collaboration}]]</td>
+                    <td th:class="${component.averageScore gt 89} ? 'above-avg-comp' : (${component.averageScore gt 79} ? 'just-avg-comp' : 'below-avg-comp')">[[${component.averageScore}]]</td>
+
+
+
+                </tr>
+
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

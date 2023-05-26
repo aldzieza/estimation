@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" >
+<!--<head th:fragment="head">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Witaj w Skleppiku</title>-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"-->
+<!--          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="-->
+<!--          crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+<!--    <link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">-->
+<!--</head>-->
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="${title}">Witaj w Skleppiku</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="../static/main.css" th:href="@{main.css}"> -->
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+<body>
+<!-- <header th:fragment="header">
+    <img src="../static/sklepik.jpg" th:src="@{/sklepik.jpg}" alt="Logo sklepu">
+    <p>Bezpieczne i pewne zakupy.</p>
+</header> -->
+<header th:fragment="header">
+
+    <nav id="nav" class="flex font-poppins fixed-top">
+        <img src="../static/PSAPT_logo.jpg" th:src="@{/PSAPT_logo.jpg}" alt="Logo PRIMA" width="122" height="81">
+                <div class="nav-brand">
+                    <a href="/secured" class="text-dark text-md font-bold" >&nbsp &nbsp  QUALITY SUPPLIERS MANAGEMENT</a>
+        </div>
+        <div id="toggle-btn" class="toggle-btn">
+            <button class="btn">
+                <i class="bi bi-filter-right"> </i>
+                <!-- <i class="bi bi-apple"></i> -->
+            </button>
+        </div>
+        <!-- id="nav_collapse" -->
+        <div id="nav_collapse"  class="collapse flex-grow">
+            <ul class="flex">
+                <li>
+                    <a href="/secured" class="link"> Home </a>
+                </li>
+                <li>
+                    <a th:href="@{/suppliersPSCPS}" class="link"> Suppliers PSCPS</a>
+                </li>
+                <li>
+                    <a th:href="@{/suppliersPSAPT}" class="link"> Suppliers PSAPT</a>
+                </li>
+                <li>
+                    <a th:href="@{/components_PSCPS}" class="link"> Components PSCPS </a>
+                </li>
+                <li>
+                    <a th:href="@{/components_PSAPT}" class="link"> Components PSAPT</a>
+                </li>
+                <li>
+                    <a href="" class="link"> Approval </a>
+                </li>
+                <li>
+                    <a href="" class="link"> Certificates </a>
+                </li>
+                <li>
+                    <a th:href="@{archives}" class="link"> Archives </a>
+                </li>
+            </ul>
+
+        </div>
+    
+    <!--    <div class="flex-initial">-->
+    <!--        <ul class="flex">-->
+    <!--            <button class="btn btn-primary btn-shadow bg-gradient text-white text-uppercase" >start a project</button>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+    </nav>
+</header>   
+<footer th:fragment="footer">
+    <br>
+    <br>
+
+    <p class="footer">Supplier management - all rights reserved</p>
+</footer>
+</body>
+</html>

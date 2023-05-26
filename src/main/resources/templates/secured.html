@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="pl"
+      th:lang="${#request.getParameter('lang') ne null? #request.getParameter('lang') : 'en'}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--      th:with="lang=${#locale.language}" th:lang="${lang}" >-->
+<head>
+    <!--         <meta charset="UTF-8">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" integrity="sha512-Oy+sz5W86PK0ZIkawrG0iv7XwWhYecM3exvUtMKNJMekGFJtVAhibhRPTpmyTj8+lJCkmWfnpxKgT2OopquBHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset ="ISO-8859-1" >
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <meta charset ="ISO-8859-1" >
+    <title > SUPPLIERS  QUALITY  MANAGEMENT  Homepage</title>
+    <!--        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">-->
+</head>
+
+<body>
+
+<!-- @@@@@@@@@@@   HEADER SECTION   @@@@@@@@@@@ -->
+<header th:replace="fragments :: header"></header>
+
+
+<!-- @@@@@@@@@@@  -/- HEADER SECTION   @@@@@@@@@@@ -->
+<!--===================================================================================-->
+<!-- @@@@@@@@@@@   MAIN SECTION   @@@@@@@@@@@ -->
+<main id="site-main">
+
+    <!-- http://localhost:8080/ -->
+    <!-- SECTION BRAND -->
+    <section id="brand" class ="row">
+        <!-- żadnego marginesu
+         -->
+
+        <!-- wprowadzamy zdjęcie logo STELLANTIS  -->
+        <!-- dla tej clasy img-fluid beda pewne specyficz\ne kolumny etc.  -->
+        <!-- col -lg -2 tylko  lg-large 2 kolumny  -->
+        <!-- col-md-4 md -middium tu 4 kolumny  -->
+        <!--  i na koncu col-6  -szesc kolumn -->
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/brandStellantis.jpg" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/brandCrysler.jpg" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/audi.jpg" th:width="280px" alt="">
+
+
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/volkswagen.jpg" th:width="280px"  alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/brandFIAT.jpg" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="/images/brand/brandPSA_G.jpg" alt="">
+
+    </section>
+    <div class="wylog">
+        <!--        <h1 th:text="${welcomeMessage}">Hello John!</h1>-->
+        <a th:if="${#authentication.isAuthenticated()}"
+           th:text="|LOG OUT|"
+           th:href="@{/logout}">Wyloguj się John "
+        <span class="btn btn-primary bg-gradient btn-shadow wylog text-white">
+
+
+        </span>
+        </a>
+
+        <!--           th:text="|Wyloguj się ${#authentication.name}|"-->
+
+    </div>
+
+
+
+    <!--// SECTION BRAND -->
+    <!-- digital life area -->
+    <section class="container mx-auto life-area ">
+
+            <br><br><br><br>
+            <div class="rowhex">
+
+                <h1 class="heading6">QUALITY SUPPLIERS MANAGEMENT PRIMA SOSNOWIEC POLAND </h1>
+                <h2 style="text-align: center;">customer satisfaction &amp; quality tools</h2><br><br><br>
+                <div class="hexcontainer">
+                    <!-- <img data-aos="fade-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-delay="2000" src="../static/images/bphex.png" class="heximg aos-init aos-animate"> -->
+                    <!-- <img data-aos="fade-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-delay="2000" src="../static/images/securetrack-mobile-label-authentication.png" class="hexphone aos-init aos-animate"> -->
+                    <div  data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-delay="1500" class="hextitlecontainer aos-init aos-animate">
+                        <p class="hextitle">
+							<a href="suppliersPSCPS" class="link_hex"> PSCPS  SUPPLIERS <br>LIST </a>
+						</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="500" class="hexagon hexagonleft aos-init aos-animate">
+                        <p class="hexp hexpmargin">
+                        <a id="link_hex1" class="link_hex" href="components_PSCPS">Components List <br> PSCPS</a>
+                        </p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-delay="700" class="hexagon hexagonright aos-init aos-animate">
+                        <p class="hexp hexpmargin">
+                            <a id="link_hex1" class="link_hex" href="components_PSAPT">Components List <br> PSAPT</a>
+                        </p>
+
+
+                    </div>
+                    <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-delay="1500" class="hextitlecontainer aos-init aos-animate">
+                        <p class="hextitle">
+                            <a href="suppliersPSAPT" class="link_hex"> PSAPT  SUPPLIERS <br>LIST </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="hexcontainer2">
+                    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" class="hexagon hexagonleft aos-init aos-animate">
+                        <p class="hexp hexpmargin">
+<!--                            <a id="link_hex1" class="link_hex" href="approvalManagement">Approval management </a>-->
+                            <a id="link_hex1" class="link_hex" href="../../plos2nfile2\28.Dostawy\APPROVAL">Approval management </a>
+                        </p>
+                    </div>
+                    <div class="hexagon">
+                    </div>
+                    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-delay="900" class="hexagon hexagonright aos-init aos-animate">
+                        <p class="hexp hexpmargin2">
+<!--                        <a id="link_hex2"  href="Certificates" class="link_hex">Certificates<br> IATF / ISO 9001 </a>-->
+                        <a id="link_hex2"  href="../../plos2nfile2\28.Dostawy\OCENA_DOSTAWCOW\CERTYFIKATY" class="link_hex">Certificates<br> IATF / ISO 9001 </a>
+                        </p>
+<!--                        <p class="hexp"></p>-->
+                    </div>
+                </div>
+                <div class="hexcontainer3">
+                    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-delay="1300" class="hexagon hexagonleft aos-init aos-animate">
+                        <p class="hexp hexpmargin">
+<!--                        <a id="link_hex1" class="link_hex" href="ComplaintsManagementPSCPS">Complaints management <br> PSCPS suppliers</a>-->
+                        <a id="link_hex1" class="link_hex" href="../../plos2nfile2\28.Dostawy\RAPORT_8D">Complaints management <br> PSCPS suppliers</a>
+                        </p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-delay="1100" class="hexagon hexagonright aos-init aos-animate">
+                        <p class="hexp hexpmargin">
+                            <a id="link_hex1" class="link_hex" href="../../plos2nfile2\28.Dostawy\RAPORT_8D">Complaints management <br> PSAPT suppliers</a>
+                        </p>
+                    </div>
+                </div>
+
+                <br><br>
+
+                <p data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-offset="200" class="hexp2 aos-init">quality experiences, interaction and trust.</p>
+            </div>
+        </section >
+        <!--// SECTION hexagon -->
+        <div class="plaster"></div>
+        <a th:href="@{/suppliers}">
+            <img  src="../static/img3.png"   th:src="@{/img3.png}" alt="Logo PRIMA" width="45" height="65">
+        </a>
+        <div class="grid cols-1 lg-cols-2 text-center md-text-left">
+            <div class="grid-images">
+                <div class="item-one"></div>
+                <div class="item-two"></div>
+                <div class="item-three"></div>
+            </div>
+            <div class="py-10">
+                <span class="d-inline btn btn-primary bg-gradient-peach text-red">quality experience</span>
+                <div class="font-poppins">
+                    <h1 class="text-lg text-dark py-5">
+                        give the trust<br>
+                        individual customer CSR
+                    </h1>
+                    <p class="py-5 text-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus repellat laborum iure illum quae quidem at suscipit obcaecati labore esse tenetur facilis sit, molestiae explicabo rerum illo architecto. Mollitia, rerum! </p>
+                    <p class="text-gray py-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus qui earum architecto atque! Voluptatum placeat ipsam repellendus quasi atque expedita, nesciunt doloremque deleniti soluta optio!
+                    </p>
+                    <div class="py-5">
+                        <a href="#" class="btn btn-primary bg-gradient btn-shadow text-white"> Home page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  /  digital life area -->
+
+<!-- @@@@@@@@@@@  /   MAIN SECTION   @@@@@@@@@@@ -->
+<footer th:replace="fragments :: footer"></footer>
+<script async src="/main.js" th:src="@{/main.js}" defer="defer" ></script>
+</main>
+</body>
+
+</html>

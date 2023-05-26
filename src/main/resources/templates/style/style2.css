@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+	margin:0;
+	padding:0;
+	box-sizing:boder-box;
+	}
+	body{
+		font-family: 'Popins', sans-serif;
+	}
+	h1{
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
+	h2{
+		font-size: 1.8rem;
+		font-weight: 600;
+		
+	}
+	h3{
+		font-size: 1.4rem;
+		font-weight: 800;
+		
+	}
+	h4{
+		font-size: 1.1rem;
+		font-weight: 600;
+		
+	}
+	h5{
+		font-size: 1rem;
+		font-weight: 400;
+		color:#1d1d1d;
+		
+			}
+
+h6{
+color: #D8D8D8
+	}
+hr{
+width:30px;
+height:2px;
+background-color: #fb774b;
+ }
+.star i{
+		font-size:0.8rem;
+		color: goldenrod;
+}		
+.logo1{
+	width: 800 px;
+	height: 800 px;
+	
+}
+	
+.navbar{
+	font-size: 16px;
+	top: 0;
+	left: 0;
+	box-shadow: 0 5px  10px  rgba(0,0,0,0.1);
+}
+.navbar-light .navbar-nav .nav-link
+{
+  padding: 0 20px;
+  color:black;
+  position:0.3s ease;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active
+.navbar i.active{
+	color:coral
+
+}
+.navbar i{
+	font-size: 1.2rem;
+	padding:0.7px;
+	cursor:pointer;
+	font-weight: 500;
+	transition: 0.3s ease;
+}
+
+/* Mobile Nav */
+.navbar-light .navbar-toggler{
+  border:none;
+  outline: none;
+}
+/* munu bar */
+/* jeżeli chcę zmineic cokolowiek z widoku to  otwieramy zbadaj i przechodzimy do 
+wskaż element na stronie-> zaznaczamy element ->Kopiuj selektor-> i jest */
+
+#bar{
+	font-size:1.5rem ;
+	padding: 7px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: 0.3s ease;
+	color: black;
+}
+#bar:hover,
+#bar.active
+{
+color: #fff;	
+}
+/* jeżeli zmieniłem te wartość na naprawdę max to widać zdjęcia  */
+@media only screen and (max-width:2000px){
+	body>nav>div>button:hover,
+	body>nav>div>button:focus{
+		background-color: #fb774b;
+	}
+	body>nav>div>button:hover #bar,
+	body>nav>div>button:focus #bar{
+		color:#fff;
+}
+/* to mamy wlscnie z kopi selectora  body > nav > div > button */
+/* #navbarSupportedContent > ul > li:nth-child(1) > a */
+#navbarSupportedContent>ul{
+	margin:1rem;
+	justify-content: flex-end;
+	align-items: flex-end;
+text-align: right;
+}
+#navbarSupportedContent > ul > li:nth-child(n) > a {
+	padding:10px 5px;
+}
+
+#home {
+	background-image: url("../images/automotive/stellantis.jpg");
+	/* jak zmieniam na wartośc powyżej 100% wtedy widze poczatek piecsetki ale nie ma peugota */
+	/* przesuniecie zdjecia w prawo to  background-position: top 190px right -100px; zmiana w right na ujemny wartosc*/
+	width: 100%;
+	height: 150vh;
+	background-size: cover;
+	/* transition: 0.3s ease; */
+	background-position: top 190px right -10px;
+	display:flex;
+flex-direction:column;
+justify-content:top;
+align-items:flex-start;
+padding-left: 20px;
+padding-top: 185px;
+/* font-family: 'Popins', sans-serif; */
+}
+
+#home span{
+	color: coral;
+}
+button{
+	font-size: 0.8rem;
+	font-weight: 700;
+	outline: none;
+	border: none;
+	background-color: #1d1d1d;
+	color: aliceblue;
+	padding: 13px 30px;
+	cursor: pointer;
+	text-transform: uppercase ;
+	transition: 0.3s ease;
+}
+button:hover{
+	background-color: #3a3810;
+
+}
+#new .one img{
+width:100%;
+height: 100%;
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+#new .one .details {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: 0.3s ease;
+	color:deepskyblue;
+}
+#new .one:hover .details {
+		cursor:pointer;
+		background-color: rgba(245,178,178,0.7);
+		color:#1d1d1d;
+
+} 
+ #new .one .details button {
+/* CONTENTS zaraz pod spodem ; inline-flex posrodku od lewej*/
+/* /grid -bez roznicy ;  flow-root  posrodku    */
+	/* display:contents; */
+	/* display:inline-block; */
+	/* display:ruby-base; */
+	/* display: -moz-deck; */
+	/* display: block; */
+	/* display: flex; */
+	/* display: inline-table; */
+	display: table-cell;
+font-size: 20px;
+font-weight: 800;
+/* color: deepskyblue; */
+color:rgb(226, 196, 112);
+background: none;
+text-transform: uppercase;
+border-bottom: 1px solid #2a2a2a;
+padding: 2.5px;
+transform: translateY(70px);
+transition: 0.3s ease;
+}
+#new .one .details button:hover {
+	color:#fff;
+	border-bottom: 1px solid #fff;
+} 
+#new .one:nth-child(1) .details{
+	display: flex;;
+	justify-content: top;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: start;
+}
+#new .one:nth-child(2) .details{
+	display: flex;;
+	justify-content: top;
+	flex-direction: column;
+	align-items:bottom;
+	text-align:center;
+}
+#new .one:nth-child(3) .details{
+	display: flex;;
+	justify-content: top;
+	flex-direction: column;
+	align-items: bottom;
+	text-align: bottom;
+}
+/* #start .fa fa-star{
+	color: #7bdeeb;
+} */
+/* Products */
+
+.product{
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+.product img{
+	transition: 0.3s all;
+}
+.product:hover img{
+	opacity:0.7;
+}
+.product .see-details-btn {
+	background: #fb774b;
+	transform: translateY(20px);
+	opacity: 0;
+	transition: 0.3s all;
+}
+.product:hover  .see-details-btn {
+	background: #df1a0c;
+	transform: translateY(0px);
+	opacity: .9;
+	
+}
+#banner{
+	background-image: url("../images/brand/brandStellantis3.jpg");
+	/* jak zmieniam na wartośc powyżej 100% wtedy widze poczatek piecsetki ale nie ma peugota */
+	/* przesuniecie zdjecia w prawo to  background-position: top 190px right -100px; zmiana w right na ujemny wartosc*/
+	/*  */
+	width: 100%;
+	height: 80vh;
+	background-size: cover;
+	/* transition: 0.3s ease; */
+	/* background-position: top 180px left 5px; */
+	background-position: top 20px center;
+	background-repeat: no-repeat;
+	/* background-attachment:scroll; */
+	background-attachment:fixed;
+	display:flex;
+flex-direction:column;
+/* justify-content:top; */
+justify-content:center ;
+align-items:flex-start;
+/* padding-left: 20px; */
+/* padding-top: 85px; */
+/* font-family: 'Popins', sans-serif; */
+}
+#banner h4{
+	color:#D8D8D8;
+}
+#banner h1{
+	color:#fff
+}
+#banner button{
+	background-color: #fb774b;
+}
+footer{
+	background-color: #222222;
+}
+footer  h5{
+	background-color: #D8D8D8;
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+footer  li{
+	padding-bottom: 4px;
+}
+footer  li a{
+	font-size: 0.8rem;
+	color: #999;
+}
+footer  li a:hover{
+	font-size: 0.8rem;
+	color: #D8D8D8;
+}
+footer p{
+	color:#999;
+	font-size: 0.8rem;
+	}
+
+	footer .copyright a{
+		color:#000;
+		width: 38px;
+		height: 38px;
+		background-color: #fff;
+		display: inline-block;
+		text-align: center;
+		line-height: 38px;
+		border-radius: 50%;
+		transition: 0.3s ease;
+		margin: 0 5 px;
+
+
+	}
+	footer .copyright a:hover{
+	color: #fff;
+	background-color: #fb774b;
+	}
+}
+

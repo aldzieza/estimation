@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Chart PSCPS Classification Suppliers </title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+
+</head>
+<body>
+<div><h1> PRIMA SOSNOWIEC PSCPS  SUPPLIERS  LIST  </h1>  <br>    </div>
+<br>
+<br>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<div id="container" style="height: 60px"></div>
+<script th:inline="javascript">
+
+    $(document).ready(function(){
+
+        $.ajax({
+            type: 'GET',
+            dataType:"json",
+            contentType:"application/json",
+            url:'http://194.182.80.100:8080/api/SupPSCPSClassification',
+            success:function(result){
+                google.charts.load('current',{
+                    'packages':['corechart']
+                });
+                google.charts.setOnLoadCallback(function(){
+                    drawChart(result);
+                });
+            }
+        });
+        function drawChart(result){
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Classification');
+            data.addColumn('number','Number Suppliers');
+            var dataArray =[];
+            $.each(result, function(i,obj){
+
+                dataArray.push([obj.classification, obj.numberSuppliers]);
+            });
+
+            data.addRows(dataArray);
+
+            var piechart_options = {
+                title: 'Pie Chart:  Classification Suppliers  in   Numbers  ',
+                width: 700,
+                height: 600
+
+            };
+
+            var piechart = new google.visualization.PieChart(document
+                .getElementById('piechart_div'));
+            piechart.draw(data, piechart_options);
+
+            var barchart_options = {
+                title: 'BAR Chart:Classification Suppliers PSCPS in Numbers',
+                width: 700,
+                height: 600,
+                legend:'none'
+            };
+            var barchart = new google.visualization.BarChart(document
+                .getElementById('barchart_div'));
+            barchart.draw(data, barchart_options);
+        }
+    });
+</script>
+<div id="debug"></div>
+<!--        <div id="output" >Nothing yet</div>-->
+<!--        <div id="app" >Nothing yet</div>-->
+<p class="table_cl" ></p>
+<script type="text/javascript">
+    fetch('http://194.182.80.100:8080/api/SupPSCPSClassification')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data)
+            const data1 = data[0].numberSuppliers;
+            const data2 = data[1].numberSuppliers;
+            const data3 = data[2].numberSuppliers;
+            document.querySelector("#data1").textContent = data1;
+            document.querySelector("#data2").textContent = data2;
+            document.querySelector("#data3").textContent = data3;
+            for(let i=0; i<data.length; i++){
+                document.getElementById("table_cl").innerHTML +=
+                    // <div class="table">
+                    //     <thead class="thead-dark">
+                    //     <tr>
+                    //         <th>
+                    data[i].classification+ "  "+
+                    //     </th>
+                    //     </tr>
+                    // <tbody class="table">
+                    //     <tr>
+                    //         <td>
+                    data[i].numberSuppliers+"<br/>"
+                //             </td>
+                //         </tr>
+                //         </tbody>
+                //     </thead>
+                // </div>
+            }})
+        .catch(function (err){
+            console.log(err);
+        });
+
+</script>
+<div>
+    <form method="post" action="suppliersPSCPSWithClass"    >
+    <table class="table_cl" >
+        <thead class="thead-dark">
+        <tr >
+
+            <th>
+                <a class=" text-center text-uppercase text-white " th:href="@{'/suppliersPSCPS/show2/A'}" >Suppliers<br></br> A </a>
+                </th>
+            <th>
+                <a class=" text-center text-uppercase text-white " th:href="@{'/suppliersPSCPS/show2/'+${'B'}}" >Suppliers<br></br> B </a>
+               </th>
+            <th>
+                <a class=" text-center text-uppercase text-white " th:href="@{'/suppliersPSCPS/show2/'+${'C'}}" >Suppliers<br></br> C </a>
+               </th>
+
+        </tr>
+        </thead>
+        <tbody class ="table_cl">
+        <tr>
+            <td><span id="data1"></span></td>
+            <td><span id="data2"></span></td>
+            <td><span id="data3"></span></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<br/><br/>
+<table class = "columns">
+    <tr>
+        <td><div id="piechart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="barchart_div" style="border: 1px solid #ccc"></div></td>
+    </tr>
+</table>
+
+</body>
+</html>

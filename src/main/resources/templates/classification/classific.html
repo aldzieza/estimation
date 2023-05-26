@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html       xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--      th:with="lang=${#locale.language}" th:lang="${lang}" >-->
+<head>
+    <!--         <meta charset="UTF-8">-->
+    <meta charset ="ISO-8859-1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" integrity="sha512-Oy+sz5W86PK0ZIkawrG0iv7XwWhYecM3exvUtMKNJMekGFJtVAhibhRPTpmyTj8+lJCkmWfnpxKgT2OopquBHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset ="ISO-8859-1" >
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../../static/style.css" th:href="@{/style.css}">
+    <link rel="stylesheet" href="../../static/style.css" th:href="@{style.css}">
+    <meta charset ="ISO-8859-1" >
+    <title > SUPPLIERS  CLASSIFICATION</title>
+    <!--        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">-->
+</head>
+
+<body>
+
+<!-- @@@@@@@@@@@   HEADER SECTION   @@@@@@@@@@@ -->
+<header th:replace="fragments :: header"></header>
+
+
+<!-- @@@@@@@@@@@  -/- HEADER SECTION   @@@@@@@@@@@ -->
+<!--===================================================================================-->
+<!-- @@@@@@@@@@@   MAIN SECTION   @@@@@@@@@@@ -->
+<main id="site-main">
+    <div ><p><a class="link1 text-center text-uppercase text-white " th:href = "@{/secured}" type="button" >Go Back to Home Page</a></p>
+    </div>
+        <section class="classifi">
+
+    <br></br>
+    <br>
+    <a>
+<!--    <img class="img2" src="../../static/img/class.jpg" width="800" height="auto" alt="classification">-->
+<!--    <img class="img" src="../static/img/class.jpg" width="800" height="auto" alt="classification">-->
+<!--        ten zapsi jest OK -->
+    <img class="img2" id="img2" th:src="@{/class.jpg}"  src="/static/img/class.jpg" width="800" height="auto"  alt="classification">
+    </a>
+        </section>
+    <!--  /  digital life area -->
+
+    <!-- @@@@@@@@@@@  /   MAIN SECTION   @@@@@@@@@@@ -->
+    <footer th:replace="fragments :: footer"></footer>
+    <script async src="/main.js" th:src="@{/templates/main.js}" defer="defer" ></script>
+
+
+</main>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}" th:lang="${lang}">
+<!--<style>-->
+<!--    .container {-->
+<!--        display: inline-block;-->
+<!--    }-->
+
+<!--    .container a {-->
+<!--        color: black;-->
+<!--        float: left;-->
+<!--        padding: 5px 5px;-->
+<!--        text-decoration: none;-->
+<!--    }-->
+
+<!--    .container a.active {-->
+<!--        background-color: gray;-->
+<!--        color: white;-->
+<!--        border-radius: 2px;-->
+<!--    }-->
+<!--</style>-->
+<head>
+    <meta charset ="ISO-8859-1" >
+    <title> SUPPLIERS  QUALITY  MANAGEMENT  Homepage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+<!--=======================***********************====================================-->
+<!--=========NAG?ÓWEK NAG?ÓWEK  ==================================================-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">QUALITY  SUPPLIER  Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/assessment}">SUPPLIER Assessment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/complaints_mgm}">COMPLAINTS Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--===================================================================================-->
+<div class="container text-center">
+    <div><h1>Welcome &nbsp to &nbsp SUPPLIERS &nbsp  QUALITY &nbsp MANAGEMENT &nbsp&nbsp Homepage</h1></div>
+    <br>
+    <br>
+    <div class ="p-2">
+        <a class="h2" th:href="@{/suppliers}">List Suppliers</a>
+    </div>
+    <br>
+    <br>
+
+    <div class ="l-2">
+        <a class="h2" th:href="@{/suppliers/new}">Create Supplier </a>
+    </div>
+    <br>
+    <br>
+    <div class ="p-2">
+        <a class="h2" th:href="@{/components}">List Components</a>
+        <br>
+        <br>
+        <div class ="l-2">
+            <a class="h2" th:href="@{/components/new}">Create Component </a>
+        </div>
+    </div>
+    <!--            <div class ="p-2">-->
+    <!--            <a class="h2" th:href="@{/brands}">List Brands</a>-->
+    <!--            </div>-->
+    <!--        <div class ="p-2">-->
+    <!--            <a class="h2" th:href="@{/brands/new}">Create Brand </a>-->
+    <!--        </div>-->
+</div>
+
+</body>
+</html>
